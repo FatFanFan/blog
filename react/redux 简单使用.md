@@ -1,11 +1,4 @@
----
-title: Redux 简单使用
-date: 2020-04-17 14:14:22
-tags: React Redux
----
-
-
-# Redux
+# Redux 简单使用
 
 ## Store
 

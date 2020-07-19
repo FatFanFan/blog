@@ -1,4 +1,4 @@
-# Vue 3.0 Composition API
+^# Vue 3.0 Composition API
 
 ## setUp() 函数
 
@@ -16,10 +16,10 @@ const MyComponent = {
     };
     return {
       msg,
-      appendName
+      appendName,
     };
   },
-  template: `<div @click="appendName">{{ msg }}</div>`
+  template: `<div @click="appendName">{{ msg }}</div>`,
 };
 ```
 
@@ -41,9 +41,9 @@ export default {
     const valueB = useLogicB();
     return {
       valueA,
-      valueB
+      valueB,
     };
-  }
+  },
 };
 ```
 
@@ -58,10 +58,10 @@ export default {
 export default {
   setup() {
     return {
-      count: ref(0)
+      count: ref(0),
     };
   },
-  template: `<button @click="count++">{{ count }}</button>`
+  template: `<button @click="count++">{{ count }}</button>`,
 };
 ```
 
@@ -70,7 +70,7 @@ export default {
 ```javascript
 const count = ref(0);
 const obj = reactive({
-  count
+  count,
 });
 
 console.log(obj.count); // 0
@@ -115,20 +115,20 @@ setup() 接收到的 props 对象是一个可观测的响应式对象
 ```javascript
 const MyComponent = {
   props: {
-    id: Number
+    id: Number,
   },
   setup(props) {
     const data = ref(null);
     watch(
       () => props.id,
-      async id => {
+      async (id) => {
         data.value = await fetchData(id);
       }
     );
     return {
-      data
+      data,
     };
-  }
+  },
 };
 ```
 
@@ -139,7 +139,7 @@ const count = ref(1);
 // double 是一个计算包装对象
 const double = computed(() => count.value * 2);
 
-watch(double, value => {
+watch(double, (value) => {
   console.log("double the count is: ", value);
 }); // -> double the count is: 0
 
@@ -196,7 +196,7 @@ watch(
   {
     flush: "post", // default, fire after renderer flush
     flush: "pre", // fire right before renderer flush
-    flush: "sync" // fire synchronously
+    flush: "sync", // fire synchronously
   }
 );
 ```
@@ -235,9 +235,9 @@ export default {
     });
 
     return {
-      count
+      count,
     };
-  }
+  },
 };
 ```
 
@@ -284,6 +284,6 @@ const MyComponent = {
     onUnmounted(() => {
       console.log("unmounted!");
     });
-  }
+  },
 };
 ```
